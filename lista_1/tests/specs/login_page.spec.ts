@@ -1,5 +1,4 @@
 import { test } from "../fixtures/fixtures"
-const users = ["standard_user", "", "problem_user", "performance_glitch_user", "error_user", "visual_user"];
 
 test.beforeEach(async ({ loginPage }) => {
     await loginPage.visit();
