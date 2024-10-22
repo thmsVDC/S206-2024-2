@@ -20,14 +20,11 @@ test.describe("Products Page Tests", () => {
         await productsPage.expectItemsAdded();
     });
 
-
     viewports.forEach(viewport => {
-
         test(`Should be able to be used on ${viewport.device}`, async ({ productsPage }) => {
             await productsPage.setViewPortSize(viewport);
             await productsPage.expectContentsVisible();
         });
-
-      });
+    });
       
 });
