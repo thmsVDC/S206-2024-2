@@ -14,22 +14,19 @@ Os testes estão localizados em `tests/specs`. A estrutura do projeto segue a ab
 
 **Page Objects** são classes que representam as páginas da sua aplicação. Elas encapsulam a lógica de interação com a interface do usuário, facilitando a manutenção e a reutilização do código. Com os Page Objects, você pode abstrair os seletores e ações em métodos que podem ser facilmente chamados em seus testes.
 
-## Instalação do Playwright com TypeScript
+## Instalação e execução do Playwright
 
-Para instalar o Playwright em seu projeto TypeScript, siga os passos abaixo:
+Para instalar e executar o Playwright, siga os passos abaixo:
 
+## Instale as dependências
 ```bash
 npm install playwright @playwright/test typescript
 ```
-# Instale as dependências
-```bash
-npm install playwright @playwright/test typescript
-```
-# Configure o TypeScript (se ainda não tiver um arquivo tsconfig.json)
+
+## Configure o TypeScript (se ainda não tiver um arquivo tsconfig.json)
 ```bash
 npx tsc --init
 ```
-
 ## Rodando os Testes
 
 Para rodar os testes, você pode usar o comando:
