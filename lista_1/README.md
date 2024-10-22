@@ -46,8 +46,9 @@ npx playwright test --ui
 
 ## Gerando Relatórios
 
-Para gerar relatórios de todos os testes, você pode usar o seguinte comando:
+Para gerar relatórios de todos os testes, você pode usar os seguintes comando:
 
 ```bash
 npx playwright test --reporter=html
+npx playwright show-report
 ```
