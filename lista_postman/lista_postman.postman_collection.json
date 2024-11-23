@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "0a427937-0150-4be2-b2a9-bdf3bd2c4cda",
+		"name": "lista_postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34319714"
+	},
+	"item": [
+		{
+			"name": "astronautas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Retorna status 200 - OK para astros.json\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"A resposta contém a chave 'people' com a lista de pessoas\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('people');",
+							"    pm.expect(jsonData.people).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"Cada pessoa na lista tem 'name' e 'craft'\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.people.forEach(function(person) {",
+							"        pm.expect(person).to.have.property('name');",
+							"        pm.expect(person).to.have.property('craft');",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.open-notify.org/astros.json",
+					"protocol": "http",
+					"host": [
+						"api",
+						"open-notify",
+						"org"
+					],
+					"path": [
+						"astros.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "iss_localizacao",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Retorna status 200 - OK para iss-now.json\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"A resposta contém a chave 'iss_position' com latitude e longitude\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('iss_position');",
+							"    pm.expect(jsonData.iss_position).to.have.all.keys('latitude', 'longitude');",
+							"});",
+							"",
+							"pm.test(\"Latitude e longitude devem ser números\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(parseFloat(jsonData.iss_position.latitude)).to.be.a('number');",
+							"    pm.expect(parseFloat(jsonData.iss_position.longitude)).to.be.a('number');",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.open-notify.org/iss-now.json",
+					"protocol": "http",
+					"host": [
+						"api",
+						"open-notify",
+						"org"
+					],
+					"path": [
+						"iss-now.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "erros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Retorna status 404 para endpoint inválido\", function() {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Verifica se não possui corpo na resposta\", function() {",
+							"    pm.response.to.not.have.body();",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.open-notify.org/invalid-endpoint",
+					"protocol": "http",
+					"host": [
+						"api",
+						"open-notify",
+						"org"
+					],
+					"path": [
+						"invalid-endpoint"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
