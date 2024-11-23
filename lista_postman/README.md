@@ -10,11 +10,12 @@ Este projeto contém uma série de testes manuais desenvolvidos para a API ReqRe
 
 2. **Alguns dos testes desenvolvidos são testes Fim-a-Fim (End-To-End)?**
    - **Resposta:**  
-     Sim, os testes positivos **POST** e **PUT** podem ser considerados End-To-End, pois verificam o ciclo completo de envio de dados, criação/atualização no sistema e retorno de confirmação.
+     Sim, os testes positivos **GET** podem ser considerados End-To-End, pois verificam o ciclo completo de solicitação de dados e resposta da API, simulando a interação do usuário com o sistema.
 
 3. **O que se deve fazer para que os testes desenvolvidos funcionem em modo regressão?**
    - **Resposta:**  
      Para executar os testes em modo de regressão, eles devem ser integrados em uma pipeline de CI/CD. Isso pode ser feito utilizando o **Newman** para executar as coleções automaticamente a cada alteração no código. É essencial manter a versão do ambiente e da coleção sincronizadas, e garantir que os dados usados nos testes (mockados ou reais) estejam consistentes.
+
 
 
 ## Ferramentas Utilizadas
