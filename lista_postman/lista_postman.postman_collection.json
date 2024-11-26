@@ -40,12 +40,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://api.open-notify.org/astros.json",
+					"raw": "{{URL}}/astros.json",
 					"protocol": "http",
 					"host": [
-						"api",
-						"open-notify",
-						"org"
+						"{{URL}}"
 					],
 					"path": [
 						"astros.json"
@@ -87,57 +85,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://api.open-notify.org/iss-now.json",
+					"raw": "{{URL}}/iss-now.json",
 					"protocol": "http",
 					"host": [
-						"api",
-						"open-notify",
-						"org"
+						"{{URL}}"
 					],
 					"path": [
-						"iss-now.json"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "erros",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Retorna status 404 para endpoint inválido\", function() {",
-							"    pm.response.to.have.status(404);",
-							"});",
-							"",
-							"pm.test(\"Verifica se não possui corpo na resposta\", function() {",
-							"    pm.response.to.not.have.body();",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://api.open-notify.org/invalid-endpoint",
-					"protocol": "http",
-					"host": [
-						"api",
-						"open-notify",
-						"org"
-					],
-					"path": [
-						"invalid-endpoint"
-					]
-				}
-			},
-			"response": []
-		}
-	]
-}
+						"iss-now.json
