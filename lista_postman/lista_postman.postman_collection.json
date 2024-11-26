@@ -91,4 +91,47 @@
 						"{{URL}}"
 					],
 					"path": [
-						"iss-now.json
+						"iss-now.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "erros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Retorna status 404 para endpoint inválido\", function() {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Verifica se não possui corpo na resposta\", function() {",
+							"    pm.response.to.not.have.body();",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/invalid-endpoint",
+					"protocol": "http",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"invalid-endpoint"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
